@@ -9,3 +9,6 @@
 
 ## 2026-11-19 (3)
 - `google-services.json` handling: never committed, kept out via `.gitignore`, provided locally or via CI secrets per environment. A real file wasn't added in this step (no CI/local secrets setup yet) — this is noted as a follow-up, not a contradiction of the no-secrets rule.
+
+## 2026-11-19 (4)
+- `memory.md` was restructured into the fixed section set required by its task (Project, Current state, Tech stack and versions, Architecture, Data model summary, Screens built, Integrations, How to run and test, Known issues, Next step), replacing its previous free-form User/Environment/Project layout. Nothing was lost: the prior content is folded into the new sections, and the original facts remain in `changelog.md`'s history.

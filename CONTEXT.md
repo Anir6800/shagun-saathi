@@ -8,7 +8,7 @@ This file is the entry point. Read it first in every new session, before touchin
 |---|---|---|
 | `CONTEXT.md` | This index: what files exist, read order, update order, session start rule. | Always, first. |
 | [`RULES.md`](RULES.md) | Hard constraints and conventions every agent must follow (money arithmetic, no deletes, string resources, design tokens, etc.). Violating these requires stopping to ask. | Always, before any task. |
-| `memory.md` | Durable facts about the user, environment, and project that should survive across sessions (not task-specific). | Always, before any task. |
+| [`memory.md`](memory.md) | The project's long-term memory: current state, stack, architecture, integrations, known issues, next step. Rewritten (Current state/Next step) after every task; gives a new agent the full picture in two minutes. | Always, before any task. |
 | `decisions.md` | Dated log of product/architecture decisions and their rationale. A task that contradicts this file must stop and ask. | Always, before any task. |
 | `changelog.md` | Dated log of what changed, why, files touched, and how it was verified. History/reference, not a pre-task read. | When investigating history or writing a new entry. |
 | `progress.md` | Checklist of steps/tasks with status and the current next step. | Always, before any task. |

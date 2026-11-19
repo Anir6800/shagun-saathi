@@ -9,4 +9,7 @@
 ## Step 2.2 - Create RULES.md
 - [x] Done (2026-11-19)
 
+## Step 2.3 - Create memory.md
+- [x] Done (2026-11-19)
+
 Next step: Create data-model.md (Firestore data model).
