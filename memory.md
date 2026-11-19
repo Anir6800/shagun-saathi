@@ -11,7 +11,7 @@ Shagun Saathi is a free Android app and light website that replace the paper not
 - GitHub repo `Anir6800/shagun-saathi` created (public), with `main` and `dev` branches.
 - Context/process docs exist: `CONTEXT.md` (index), `RULES.md` (rulebook), `memory.md` (this file), `decisions.md` (13 seeded product/architecture decisions D-001–D-013 plus 4 process decisions D-014–D-017, all Accepted), `changelog.md`, `progress.md`, `open-questions.md`.
 - No app code written yet. No Android module, no Firebase project, no screens, no data layer.
-- `data-model.md` and `screens.md` now exist. `design-tokens.md` does not exist yet.
+- `data-model.md`, `screens.md`, and `design-tokens.md` all now exist. `design-tokens.md` holds seed values only, marked "replace after Stitch".
 - Local Android Studio project at `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` exists separately and is not yet a git repo (open question: merge into this repo or keep separate).
 
 ## Tech stack and versions
@@ -54,4 +54,4 @@ Not applicable yet — no Android module exists in this repo. Once the app modul
 
 ## Next step
 
-Create `design-tokens.md` (seed design tokens), per `progress.md` (step 2.9).
+Create `open-questions.md` (seed open questions), per `progress.md` (step 2.10).

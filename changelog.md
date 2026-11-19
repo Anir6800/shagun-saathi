@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 2.9 — Create design-tokens.md
+- What: Created `design-tokens.md` with sections for colour, glass, typography, spacing, radius, blur, motion, and components, seeded with the given starting values (background `#0A0A0A`/`#F2F2F2`, surface `#161616`, muted `#8A8A8A`, glass fill 8–14% white, border 16–20%, blur 20–30, radius 20dp, type scale 40/22/16/12, 8-point spacing with 20dp margin, 52dp buttons, motion enter 280ms/stagger 40ms/press 120ms/count-up 700ms). Every value is explicitly marked "seed, replace after Stitch". Linked it from `CONTEXT.md`'s index.
+- Why: Step 2.9 — UI code needs a single token source to build against before the real Stitch design exists, per `RULES.md`'s "colours/radii/blur only from design-tokens.md" rule.
+- Files touched: `design-tokens.md` (new), `CONTEXT.md`, `memory.md`.
+- How verified: Confirmed all 8 required sections are present, every seeded value from the task matches exactly, and every section header/table is marked "seed, replace after Stitch". Confirmed `design-tokens.md`'s row in `CONTEXT.md` links to the file. No app code or build involved, so no Gradle build/test run was applicable.
+
 ## 2026-11-19 — Step 2.8 — Create screens.md
 - What: Created `screens.md` with a 42-row table (number, screen, platform, group, Stitch id, design status, build status, primary action, components, animations, notes) covering all 32 planned Android screens and 10 planned Web screens, each marked `planned`/`todo` with a Stitch id placeholder. Linked it from `CONTEXT.md`'s index.
 - Why: Step 2.8 — design (Stitch) and build steps need one shared map of every screen so nothing is designed or built twice or skipped.
