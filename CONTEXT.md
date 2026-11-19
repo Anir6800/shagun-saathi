@@ -12,7 +12,7 @@ This file is the entry point. Read it first in every new session, before touchin
 | [`decisions.md`](decisions.md) | ID'd (D-001...) decision log: context, decision, alternatives, consequences. Entries are never edited once accepted — only superseded. A task that contradicts this file must stop and ask. | Always, before any task. |
 | [`changelog.md`](changelog.md) | Newest-first running history: date, step id, what changed, why, files touched, how verified. One entry per completed step, never rewritten. | When investigating history or writing a new entry. |
 | [`progress.md`](progress.md) | Current phase/step/last-updated header, a table of phases 1–17 with exit criteria and status, and a table of steps with tool/status/date/notes. Updated when a step starts and when it finishes. | Always, before any task. |
-| `data-model.md` | Firestore data model: `events/{id}` member roles, `entries`/`history`/`boxes` subcollections, `guests/{id}`, field definitions. | When a task touches data, repositories, or Firestore rules. |
+| [`data-model.md`](data-model.md) | Firestore data model: collections table, fields with types, example documents, role rules summary, indexes, change log. | When a task touches data, repositories, or Firestore rules. |
 | `screens.md` | Screen inventory, navigation graph, per-screen purpose, states, and key UI behaviour. | When a task touches UI, navigation, or ViewModels. |
 | `design-tokens.md` | Colours, radii, blur, spacing, and other tokens sourced from the Stitch design. | When a task touches UI styling. |
 | `open-questions.md` | Unresolved questions that need the product owner's input before proceeding. | Always, before any task; add to it whenever a task raises a new question. |

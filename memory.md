@@ -11,7 +11,7 @@ Shagun Saathi is a free Android app and light website that replace the paper not
 - GitHub repo `Anir6800/shagun-saathi` created (public), with `main` and `dev` branches.
 - Context/process docs exist: `CONTEXT.md` (index), `RULES.md` (rulebook), `memory.md` (this file), `decisions.md` (13 seeded product/architecture decisions D-001–D-013 plus 4 process decisions D-014–D-017, all Accepted), `changelog.md`, `progress.md`, `open-questions.md`.
 - No app code written yet. No Android module, no Firebase project, no screens, no data layer.
-- `data-model.md`, `screens.md`, `design-tokens.md` do not exist yet.
+- `data-model.md` now exists (collections, fields, examples, role rules, indexes). `screens.md`, `design-tokens.md` do not exist yet.
 - Local Android Studio project at `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` exists separately and is not yet a git repo (open question: merge into this repo or keep separate).
 
 ## Tech stack and versions
@@ -30,7 +30,7 @@ MVVM with repositories. Layers: `ui/` (Composables, screens, nav graph, one View
 
 ## Data model summary
 
-See `data-model.md` (not created yet). Known shape: `events/{id}` with a `members` map (owner, writer, helper, viewer roles) and subcollections `entries`, `history`, `boxes`; `guests/{id}` per owner.
+See `data-model.md` for the full schema. `events/{id}` has a `members` map (owner, writer, helper, viewer roles) and subcollections `entries` (guestId, type, netAmount, notesIn, changeOut, writerId, serial, voidedReason), `history` (append-only audit of edits/voids), and `boxes` (cash note counts, handovers); `guests/{id}` is scoped per owner.
 
 ## Screens built
 
@@ -54,4 +54,4 @@ Not applicable yet — no Android module exists in this repo. Once the app modul
 
 ## Next step
 
-Create `data-model.md` (Firestore data model), per `progress.md` (step 2.7).
+Create `screens.md` (screen map), per `progress.md` (step 2.8).

@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 2.7 — Create data-model.md
+- What: Created `data-model.md` with sections: collections table, fields with types, example documents, role rules summary, indexes, and a change log of the model. Seeded `events/{eventId}` (members map), `entries` (guestId, type, netAmount, notesIn, changeOut, writerId, serial, voidedReason), `history`, `boxes` subcollections, and `guests/{guestId}` per owner. Linked it from `CONTEXT.md`'s index.
+- Why: Step 2.7 — the data layer (Phase 4) needs one source of truth for the Firestore shape before any repository code is written.
+- Files touched: `data-model.md` (new), `CONTEXT.md`, `memory.md`.
+- How verified: Confirmed all 6 required sections are present, the `entries` fields match the task's exact list (guestId, type, netAmount, notesIn, changeOut, writerId, serial, voidedReason), example documents are valid JSON, and the role rules summary matches `members` roles from `RULES.md`/`decisions.md`. Confirmed `data-model.md`'s row in `CONTEXT.md` links to the file. No app code or build involved, so no Gradle build/test run was applicable.
+
 ## 2026-11-19 — Step 2.6 — Create progress.md
 - What: Restructured `progress.md` from a simple done-list into: a header (Current phase, Current step, Last updated), a table of 17 phases (exit criteria, status, date) spanning setup through release, and a table of steps (step id, title, tool, status, date, notes) covering every step completed so far plus the remaining Phase 2 steps. Linked it from `CONTEXT.md`'s index.
 - Why: Step 2.6 — the project needs one place that shows exactly where it stands, at both the phase and step level.
