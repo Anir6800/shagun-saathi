@@ -15,7 +15,7 @@ This file is the entry point. Read it first in every new session, before touchin
 | [`data-model.md`](data-model.md) | Firestore data model: collections table, fields with types, example documents, role rules summary, indexes, change log. | When a task touches data, repositories, or Firestore rules. |
 | [`screens.md`](screens.md) | Screen map: number, screen, platform, group, Stitch id, design/build status, primary action, components, animations, notes — all 42 planned screens (32 Android + 10 Web). | When a task touches UI, navigation, or ViewModels. |
 | [`design-tokens.md`](design-tokens.md) | Colour, glass, typography, spacing, radius, blur, motion, components tokens. Currently seed values marked "replace after Stitch". | When a task touches UI styling. |
-| `open-questions.md` | Unresolved questions that need the product owner's input before proceeding. | Always, before any task; add to it whenever a task raises a new question. |
+| [`open-questions.md`](open-questions.md) | ID'd (Q-001...) list of unresolved questions: question, why it matters, owner, status, answer, date. When answered, the answer moves into `decisions.md`. | Always, before any task; add to it whenever a task raises a new question. |
 
 ## Read order (before any task)
 

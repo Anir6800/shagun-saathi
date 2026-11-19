@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 2.10 — Create open-questions.md
+- What: Rewrote `open-questions.md` into an ID'd list (Q-001–Q-009): migrated the 3 previously tracked questions into the new format (Android project merge, data-model/screens/design-tokens stubbing — now resolved and marked `answered`, google-services.json provisioning), and seeded the 6 required new questions (Antigravity model dropdown, Stitch MCP connection details, final domain name, Play Integrity/App Check setup, Gemini free quota limits, Google Play publishing later). Added `D-018` to `decisions.md` recording the resolution of Q-002. Linked `open-questions.md` from `CONTEXT.md`'s index.
+- Why: Step 2.10 — completes the context/process doc set (Phase 2) with a single place to track unresolved questions in the required ID'd format.
+- Files touched: `open-questions.md`, `decisions.md`, `CONTEXT.md`, `memory.md`.
+- How verified: Counted 9 total questions (3 migrated + 6 newly seeded) each with all 6 required fields (ID, question, why it matters, owner, status, answer, date); confirmed Q-002 is marked `answered` with a pointer to `D-018`; confirmed `open-questions.md`'s row in `CONTEXT.md` links to the file. No app code or build involved, so no Gradle build/test run was applicable.
+
 ## 2026-11-19 — Step 2.9 — Create design-tokens.md
 - What: Created `design-tokens.md` with sections for colour, glass, typography, spacing, radius, blur, motion, and components, seeded with the given starting values (background `#0A0A0A`/`#F2F2F2`, surface `#161616`, muted `#8A8A8A`, glass fill 8–14% white, border 16–20%, blur 20–30, radius 20dp, type scale 40/22/16/12, 8-point spacing with 20dp margin, 52dp buttons, motion enter 280ms/stagger 40ms/press 120ms/count-up 700ms). Every value is explicitly marked "seed, replace after Stitch". Linked it from `CONTEXT.md`'s index.
 - Why: Step 2.9 — UI code needs a single token source to build against before the real Stitch design exists, per `RULES.md`'s "colours/radii/blur only from design-tokens.md" rule.

@@ -141,3 +141,11 @@ Entry format: ID, date, status (`Accepted` or `Superseded`), context, decision, 
 - Decision: Replaced `memory.md`'s prior free-form User/Environment/Project layout with this fixed structure.
 - Alternatives considered: Keeping the old layout and appending the new sections — rejected (task explicitly asked for this section set, and keeping both would bloat the file past its 300-line budget over time).
 - Consequences: Any future edit to `memory.md` must preserve this section set; the prior free-form content's facts were folded into the new sections, with history preserved in `changelog.md`.
+
+## D-018
+- Date: 2026-11-19
+- Status: Accepted
+- Context: Q-001 in `open-questions.md` asked whether `data-model.md`, `screens.md`, and `design-tokens.md` should be created as their own dedicated steps rather than stubbed immediately.
+- Decision: Yes — created as steps 2.7, 2.8, and 2.9 respectively. All three now exist.
+- Alternatives considered: None new; this confirms the approach already taken in D-015.
+- Consequences: `open-questions.md` Q-002 is marked `answered` pointing here.

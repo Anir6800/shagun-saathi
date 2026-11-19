@@ -1,7 +1,7 @@
 # Progress
 
-Current phase: Phase 2 — Context and process docs
-Current step: 2.9 — Create design-tokens.md (done); next up 2.10
+Current phase: Phase 3 — Firebase setup
+Current step: 2.10 — Create open-questions.md (done); Phase 2 complete; next up Phase 3 (Firebase project setup, starting with Q-003)
 Last updated: 2026-11-19
 
 Update status when a step starts (`doing`) and when it finishes (`done`). List blockers under the step they block.
@@ -11,7 +11,7 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | Phase | Exit criteria | Status | Date |
 |---|---|---|---|
 | 1. Project setup | Android project builds and syncs; public GitHub repo exists with `main`/`dev` branches | done | 2026-11-19 |
-| 2. Context and process docs | `CONTEXT.md`, `RULES.md`, `memory.md`, `decisions.md`, `changelog.md`, `progress.md`, `data-model.md`, `screens.md`, `design-tokens.md`, `open-questions.md` all exist and are linked from `CONTEXT.md` | doing | 2026-11-19 |
+| 2. Context and process docs | `CONTEXT.md`, `RULES.md`, `memory.md`, `decisions.md`, `changelog.md`, `progress.md`, `data-model.md`, `screens.md`, `design-tokens.md`, `open-questions.md` all exist and are linked from `CONTEXT.md` | done | 2026-11-19 |
 | 3. Firebase setup | Firebase project created; Auth (Google + email), Firestore (offline persistence), Storage, and Firebase AI Logic configured; `google-services.json` provisioned locally/CI | todo | |
 | 4. Data layer | Repositories and models for events/entries/history/boxes/guests built per `data-model.md`; Firestore security rules written | todo | |
 | 5. Design system from Stitch | Real Stitch screens pulled via MCP; `design-tokens.md` replaced with real values from the design | todo | |
@@ -43,8 +43,8 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 2.7 | Create data-model.md | Antigravity agent | done | 2026-11-19 | Collections, fields, examples, role rules, indexes, change log. |
 | 2.8 | Create screens.md | Antigravity agent | done | 2026-11-19 | 42 screens seeded (32 Android + 10 Web). |
 | 2.9 | Create design-tokens.md | Antigravity agent | done | 2026-11-19 | Seeded, all values marked replace-after-Stitch. |
-| 2.10 | Create open-questions.md | Antigravity agent | todo | | |
+| 2.10 | Create open-questions.md | Antigravity agent | done | 2026-11-19 | Q-001–Q-009 seeded; Q-002 answered via D-018. |
 
 ## Blockers
 
-- None currently. (Phase 3 is blocked on deciding where Firebase secrets/`google-services.json` are provisioned — see `open-questions.md`.)
+- Phase 3 (Firebase setup) is blocked on Q-003 (where `google-services.json`/secrets are provisioned per environment) — see `open-questions.md`.
