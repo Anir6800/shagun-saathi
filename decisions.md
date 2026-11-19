@@ -157,3 +157,19 @@ Entry format: ID, date, status (`Accepted` or `Superseded`), context, decision, 
 - Decision: Firebase project `shagun-saathi` on the Spark plan. Firestore `(default)` database in Native mode, region `asia-south1` (Mumbai), production-mode rules. Auth providers: Google and Email/Password. `google-services.json` lives only in `app/` on the local machine and is git-ignored.
 - Alternatives considered: Other regions were rejected, because `asia-south1` is closest to users in India and Firestore's location can't be changed later. Test-mode rules were rejected because the data is private by default.
 - Consequences: The region is fixed for good. Every read and write needs real security rules before the app works. Firebase config is pinned in `gradle/libs.versions.toml`: google-services 4.6.0, firebase-auth 25.0.0, firebase-firestore 27.2.0.
+
+## D-020
+- Date: 2026-11-19
+- Status: Accepted
+- Context: Q-010. The app id was `com.example.shagunsaathi`.
+- Decision: The app id and namespace are `com.shagunsaathi.app`. It is registered as a new Firebase Android app with the debug SHA-1 and SHA-256. The old `com.example.shagunsaathi` Firebase app stays registered but unused.
+- Alternatives considered: Keeping `com.example.*`, rejected because it can't be published and can't change after release.
+- Consequences: Each new signing key (release, CI) needs its SHA-1 added to the `com.shagunsaathi.app` Firebase app. The unused old app can be deleted from the console later.
+
+## D-021
+- Date: 2026-11-19
+- Status: Accepted
+- Context: firebase-auth 25.0.0 is compiled with Kotlin 2.4 metadata, but AGP 9.5.1's built-in Kotlin is 2.2, so compilation failed.
+- Decision: Pin Kotlin 2.4.0 by declaring `org.jetbrains.kotlin.android` with `apply false` in the root `build.gradle.kts`.
+- Alternatives considered: Downgrading firebase-auth, rejected because it holds the project on old Firebase. Skipping the metadata check with a compiler flag, rejected as a hack.
+- Consequences: Kotlin upgrades are now a deliberate catalog bump (`kotlin` in `libs.versions.toml`), not tied to AGP's bundled version.

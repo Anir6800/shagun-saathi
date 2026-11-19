@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 3.2 — Fix package name and register debug SHA-1
+- What: Registered a new Firebase Android app `com.shagunsaathi.app` (`1:354786670547:android:d0b8dd3629d3f61fd62126`) and added the debug keystore's SHA-1 and SHA-256 to it. Downloaded a new `google-services.json`; the old one is kept locally as `google-services.json.old-com.example`, and `.gitignore` now covers `google-services.json*`. Changed `namespace` and `applicationId` to `com.shagunsaathi.app` and moved the main, test and androidTest sources to match. Pinned Kotlin 2.4.0 at the root (`kotlin-android` declared with `apply false`), because firebase-auth 25.0.0 is compiled with Kotlin 2.4 metadata and broke the build under AGP's bundled Kotlin 2.2.
+- Why: Step 3.2 / Q-010. A `com.example` id can't ship and can't change after the first public APK, and Google sign-in needs a registered SHA-1.
+- Files touched: `ShagunSaathi/app/build.gradle.kts`, `ShagunSaathi/build.gradle.kts`, `ShagunSaathi/gradle/libs.versions.toml`, `ShagunSaathi/.gitignore`, `ShagunSaathi/app/google-services.json` (local only), `MainActivity.kt`, `ExampleUnitTest.kt`, `ExampleInstrumentedTest.kt`.
+- How verified: `firebase apps:android:sha:list` shows both hashes. `./gradlew assembleDebug testDebugUnitTest` passed, and `processDebugGoogleServices` matched the new package. Gradle sync succeeded.
+
 ## 2026-11-19 — Step 3.1 — Create the Firebase project (Spark plan)
 - What: The product owner created Firebase project `shagun-saathi` (number 354786670547), registered an Android app, placed `google-services.json` in `app/`, turned on Google and Email/Password auth, and created a Firestore database. In the Android project, they also added the `com.google.gms.google-services` plugin (4.6.0), `firebase-auth` (25.0.0) and `firebase-firestore` (27.2.0). The agent then added `google-services.json` to the Android project's `.gitignore`, as D-016 requires.
 - Why: Step 3.1. Data and auth work can't start until there is a Firebase backend.

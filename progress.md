@@ -1,7 +1,7 @@
 # Progress
 
 Current phase: Phase 3 — Firebase setup
-Current step: 3.1 — Create the Firebase project (done with follow-ups); next up 3.2 — fix package name to com.shagunsaathi.app and register debug SHA-1
+Current step: 3.2 — Fix package name and register debug SHA-1 (done); next up 3.3 — Firebase Storage and Firebase AI Logic setup
 Last updated: 2026-11-19
 
 Update status when a step starts (`doing`) and when it finishes (`done`). List blockers under the step they block.
@@ -45,8 +45,9 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 2.9 | Create design-tokens.md | Antigravity agent | done | 2026-11-19 | Seeded, all values marked replace-after-Stitch. |
 | 2.10 | Create open-questions.md | Antigravity agent | done | 2026-11-19 | Q-001–Q-009 seeded; Q-002 answered via D-018. |
 | 3.1 | Create the Firebase project (Spark plan) | Firebase console + CLI | done | 2026-11-19 | Done by product owner, verified via CLI. Follow-ups: package name is `com.example.shagunsaathi` (should be `com.shagunsaathi.app`); no debug SHA-1 registered. |
-| 3.2 | Fix package name and register debug SHA-1 | Android Studio + Firebase console | todo | | Needed before Google sign-in works. |
+| 3.2 | Fix package name and register debug SHA-1 | Android Studio + Firebase CLI | done | 2026-11-19 | New Firebase app `com.shagunsaathi.app` with debug SHA-1/SHA-256. Sources moved. Kotlin pinned to 2.4.0 for firebase-auth 25. Build and unit tests pass. |
+| 3.3 | Firebase Storage and Firebase AI Logic setup | Firebase console | todo | | |
 
 ## Blockers
 
-- Google sign-in is blocked until a debug SHA-1 is registered and the package name matches `com.shagunsaathi.app` (step 3.2).
+- None.

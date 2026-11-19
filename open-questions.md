@@ -74,8 +74,8 @@ Entry format: ID, question, why it matters, owner, status (`open` or `answered`)
 - Question: Should the Android app id be changed from `com.example.shagunsaathi` to `com.shagunsaathi.app`? That would mean registering a new Android app in Firebase and downloading a new `google-services.json`.
 - Why it matters: The step 3.1 task named `com.shagunsaathi.app`, but the Firebase app and the Gradle `applicationId`/`namespace` all use `com.example.shagunsaathi`. Releases can't ship with a `com.example` id, and the id can't change after the first public APK.
 - Owner: Product owner
-- Status: open
-- Answer: —
+- Status: answered
+- Answer: Yes. Changed to `com.shagunsaathi.app` in step 3.2. See D-020.
 - Date: 2026-11-19
 
 ## Q-011
