@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Launcher icon background. Matches the logo's own black canvas, not -->
+    <!-- design-tokens.md's #0A0A0A seed background, so there is no visible seam. -->
+    <color name="launcher_background">#FF000000</color>
 </resources>

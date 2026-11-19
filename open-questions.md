@@ -102,6 +102,14 @@ Entry format: ID, question, why it matters, owner, status (`open` or `answered`)
 - Answer: —
 - Date: 2026-11-19
 
+## Q-014
+- Question: Should the launcher icon's adaptive foreground/monochrome layers be redone as true vector (XML) drawables once a vector source of the logo exists (e.g. from Stitch), instead of the current raster PNGs generated from a flattened image?
+- Why it matters: Raster PNGs per density work but don't scale losslessly to arbitrary launcher sizes the way a vector drawable does; the monochrome (Android 13+ themed icon) layer in particular was derived by thresholding luminance into an alpha channel, which is a rough approximation of a hand-authored silhouette.
+- Owner: Product owner
+- Status: open
+- Answer: —
+- Date: 2026-11-19
+
 ## Q-009
 - Question: Should the app be published on Google Play at some point, in addition to the GitHub Releases APK?
 - Why it matters: Affects signing/release process, review compliance work, and whether Play-specific APIs (e.g. Play Integrity) should be adopted now or later.
