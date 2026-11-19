@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 3.1 — Create the Firebase project (Spark plan)
+- What: The product owner created Firebase project `shagun-saathi` (number 354786670547), registered an Android app, placed `google-services.json` in `app/`, turned on Google and Email/Password auth, and created a Firestore database. In the Android project, they also added the `com.google.gms.google-services` plugin (4.6.0), `firebase-auth` (25.0.0) and `firebase-firestore` (27.2.0). The agent then added `google-services.json` to the Android project's `.gitignore`, as D-016 requires.
+- Why: Step 3.1. Data and auth work can't start until there is a Firebase backend.
+- Files touched: `ShagunSaathi/app/google-services.json` (local only, ignored), `ShagunSaathi/.gitignore`, `ShagunSaathi/build.gradle.kts`, `ShagunSaathi/app/build.gradle.kts`, `ShagunSaathi/gradle/libs.versions.toml`.
+- How verified: Firebase CLI showed the project and one Android app. Firestore `(default)` is `FIRESTORE_NATIVE` in `asia-south1`. `google-services.json` has `project_id` `shagun-saathi`. The CLI couldn't verify the Spark plan or which auth providers are on, so those rely on the product owner's word. Mismatches found: the package name is `com.example.shagunsaathi` instead of `com.shagunsaathi.app`, and no SHA-1 is registered. Both moved to step 3.2.
+
 ## 2026-11-19 — Step 2.10 — Create open-questions.md
 - What: Rewrote `open-questions.md` into an ID'd list (Q-001–Q-009): migrated the 3 previously tracked questions into the new format (Android project merge, data-model/screens/design-tokens stubbing — now resolved and marked `answered`, google-services.json provisioning), and seeded the 6 required new questions (Antigravity model dropdown, Stitch MCP connection details, final domain name, Play Integrity/App Check setup, Gemini free quota limits, Google Play publishing later). Added `D-018` to `decisions.md` recording the resolution of Q-002. Linked `open-questions.md` from `CONTEXT.md`'s index.
 - Why: Step 2.10 — completes the context/process doc set (Phase 2) with a single place to track unresolved questions in the required ID'd format.

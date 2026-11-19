@@ -70,6 +70,22 @@ Entry format: ID, question, why it matters, owner, status (`open` or `answered`)
 - Answer: —
 - Date: 2026-11-19
 
+## Q-010
+- Question: Should the Android app id be changed from `com.example.shagunsaathi` to `com.shagunsaathi.app`? That would mean registering a new Android app in Firebase and downloading a new `google-services.json`.
+- Why it matters: The step 3.1 task named `com.shagunsaathi.app`, but the Firebase app and the Gradle `applicationId`/`namespace` all use `com.example.shagunsaathi`. Releases can't ship with a `com.example` id, and the id can't change after the first public APK.
+- Owner: Product owner
+- Status: open
+- Answer: —
+- Date: 2026-11-19
+
+## Q-011
+- Question: Is the Firebase project definitely still on the Spark (free) plan, and are both Google and Email/Password turned on under Auth → Sign-in method?
+- Why it matters: The CLI can't confirm the billing plan or the auth providers. D-003 requires the Spark plan.
+- Owner: Product owner
+- Status: open
+- Answer: —
+- Date: 2026-11-19
+
 ## Q-009
 - Question: Should the app be published on Google Play at some point, in addition to the GitHub Releases APK?
 - Why it matters: Affects signing/release process, review compliance work, and whether Play-specific APIs (e.g. Play Integrity) should be adopted now or later.

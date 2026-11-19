@@ -149,3 +149,11 @@ Entry format: ID, date, status (`Accepted` or `Superseded`), context, decision, 
 - Decision: Yes — created as steps 2.7, 2.8, and 2.9 respectively. All three now exist.
 - Alternatives considered: None new; this confirms the approach already taken in D-015.
 - Consequences: `open-questions.md` Q-002 is marked `answered` pointing here.
+
+## D-019
+- Date: 2026-11-19
+- Status: Accepted
+- Context: The Firebase backend had to be created (step 3.1), within D-003's free-plan rule.
+- Decision: Firebase project `shagun-saathi` on the Spark plan. Firestore `(default)` database in Native mode, region `asia-south1` (Mumbai), production-mode rules. Auth providers: Google and Email/Password. `google-services.json` lives only in `app/` on the local machine and is git-ignored.
+- Alternatives considered: Other regions were rejected, because `asia-south1` is closest to users in India and Firestore's location can't be changed later. Test-mode rules were rejected because the data is private by default.
+- Consequences: The region is fixed for good. Every read and write needs real security rules before the app works. Firebase config is pinned in `gradle/libs.versions.toml`: google-services 4.6.0, firebase-auth 25.0.0, firebase-firestore 27.2.0.
