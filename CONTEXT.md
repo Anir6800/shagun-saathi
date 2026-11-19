@@ -13,7 +13,7 @@ This file is the entry point. Read it first in every new session, before touchin
 | [`changelog.md`](changelog.md) | Newest-first running history: date, step id, what changed, why, files touched, how verified. One entry per completed step, never rewritten. | When investigating history or writing a new entry. |
 | [`progress.md`](progress.md) | Current phase/step/last-updated header, a table of phases 1–17 with exit criteria and status, and a table of steps with tool/status/date/notes. Updated when a step starts and when it finishes. | Always, before any task. |
 | [`data-model.md`](data-model.md) | Firestore data model: collections table, fields with types, example documents, role rules summary, indexes, change log. | When a task touches data, repositories, or Firestore rules. |
-| `screens.md` | Screen inventory, navigation graph, per-screen purpose, states, and key UI behaviour. | When a task touches UI, navigation, or ViewModels. |
+| [`screens.md`](screens.md) | Screen map: number, screen, platform, group, Stitch id, design/build status, primary action, components, animations, notes — all 42 planned screens (32 Android + 10 Web). | When a task touches UI, navigation, or ViewModels. |
 | `design-tokens.md` | Colours, radii, blur, spacing, and other tokens sourced from the Stitch design. | When a task touches UI styling. |
 | `open-questions.md` | Unresolved questions that need the product owner's input before proceeding. | Always, before any task; add to it whenever a task raises a new question. |
 

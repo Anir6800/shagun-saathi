@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Step 2.8 — Create screens.md
+- What: Created `screens.md` with a 42-row table (number, screen, platform, group, Stitch id, design status, build status, primary action, components, animations, notes) covering all 32 planned Android screens and 10 planned Web screens, each marked `planned`/`todo` with a Stitch id placeholder. Linked it from `CONTEXT.md`'s index.
+- Why: Step 2.8 — design (Stitch) and build steps need one shared map of every screen so nothing is designed or built twice or skipped.
+- Files touched: `screens.md` (new), `CONTEXT.md`, `memory.md`.
+- How verified: Counted exactly 42 rows (32 Android numbered 1–32, 10 Web numbered 33–42) matching the task's screen names exactly; confirmed every row has all 10 required columns; confirmed `screens.md`'s row in `CONTEXT.md` links to the file. No app code or build involved, so no Gradle build/test run was applicable.
+
 ## 2026-11-19 — Step 2.7 — Create data-model.md
 - What: Created `data-model.md` with sections: collections table, fields with types, example documents, role rules summary, indexes, and a change log of the model. Seeded `events/{eventId}` (members map), `entries` (guestId, type, netAmount, notesIn, changeOut, writerId, serial, voidedReason), `history`, `boxes` subcollections, and `guests/{guestId}` per owner. Linked it from `CONTEXT.md`'s index.
 - Why: Step 2.7 — the data layer (Phase 4) needs one source of truth for the Firestore shape before any repository code is written.

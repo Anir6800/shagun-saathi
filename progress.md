@@ -1,7 +1,7 @@
 # Progress
 
 Current phase: Phase 2 — Context and process docs
-Current step: 2.7 — Create data-model.md (done); next up 2.8
+Current step: 2.8 — Create screens.md (done); next up 2.9
 Last updated: 2026-11-19
 
 Update status when a step starts (`doing`) and when it finishes (`done`). List blockers under the step they block.
@@ -41,7 +41,7 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 2.5 | Create changelog.md | Antigravity agent | done | 2026-11-19 | Reformatted newest-first with step ids. |
 | 2.6 | Create progress.md | Antigravity agent | done | 2026-11-19 | Restructured into phase/step tables. |
 | 2.7 | Create data-model.md | Antigravity agent | done | 2026-11-19 | Collections, fields, examples, role rules, indexes, change log. |
-| 2.8 | Create screens.md | Antigravity agent | todo | | |
+| 2.8 | Create screens.md | Antigravity agent | done | 2026-11-19 | 42 screens seeded (32 Android + 10 Web). |
 | 2.9 | Create design-tokens.md | Antigravity agent | todo | | |
 | 2.10 | Create open-questions.md | Antigravity agent | todo | | |
 
