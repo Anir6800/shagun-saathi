@@ -6,6 +6,12 @@ Format: date, step id, what changed, why, files touched, how verified.
 
 ---
 
+## 2026-11-19 — Clean up the old Android project's empty local repo
+- What: Removed the `.git` folder from `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` (the old path, now superseded by `android/` in this repo).
+- Why: Android Studio's Commit panel was still showing that folder's 53 files as "unversioned" against its own empty local repo, which could confuse future commits (risk of committing from the wrong path/repo).
+- Files touched: `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi\.git` (deleted; project files themselves untouched).
+- How verified: `git log --oneline --all` on that path returned nothing before deletion, confirming zero commits existed to lose. `Test-Path .git` returned `False` after removal.
+
 ## 2026-11-19 — Resolve Q-001 — Move the Android app into this repo
 - What: Copied the Android project (minus build artifacts, `.gradle/`, `.idea/`, `local.properties`, `google-services.json*`) from `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` into `android/` in this repo, on `dev`. Updated the root `.gitignore`'s `google-services.json` line to `google-services.json*` so the backup file (`google-services.json.old-com.example`) is covered too.
 - Why: Q-001 had been open since step 1.2; the product owner chose one repo for both docs and app code over a separate app repo.
