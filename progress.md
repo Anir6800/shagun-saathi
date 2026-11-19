@@ -48,6 +48,7 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 3.2 | Fix package name and register debug SHA-1 | Android Studio + Firebase CLI | done | 2026-11-19 | New Firebase app `com.shagunsaathi.app` with debug SHA-1/SHA-256. Sources moved. Kotlin pinned to 2.4.0 for firebase-auth 25. Build and unit tests pass. |
 | 3.3 | Firebase Storage and Firebase AI Logic setup | Firebase console | todo | | |
 | 4.1 | Data model and security rules | Antigravity agent + Firebase CLI | done | 2026-11-19 | Schema reshaped in data-model.md; firestore.rules + firestore.indexes.json written and deployed. |
+| — | Move Android app into android/ (resolve Q-001) | Antigravity agent | done | 2026-11-19 | 42 files moved from the old AndroidStudioProjects path into this repo's dev branch. |
 | 4.2 | Build repositories/models in data/ per the schema | Antigravity agent | todo | | |
 
 ## Blockers

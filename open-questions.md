@@ -10,8 +10,8 @@ Entry format: ID, question, why it matters, owner, status (`open` or `answered`)
 - Question: Should the local Android Studio project (`C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi`, not yet a git repo) be moved into the `shagun-saathi` GitHub repo, or kept separate with that repo only for planning docs?
 - Why it matters: Determines where app source code will actually live relative to the context/process docs, and whether two repos need to stay in sync.
 - Owner: Product owner
-- Status: open
-- Answer: —
+- Status: answered
+- Answer: Moved into this same repo, under `android/` on `dev`. See D-024.
 - Date: 2026-11-19
 
 ## Q-002

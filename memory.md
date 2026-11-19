@@ -14,7 +14,7 @@ Shagun Saathi is a free Android app and light website that replace the paper not
 - The full Firestore schema is designed and `firestore.rules`/`firestore.indexes.json` are written and **deployed** to the live `shagun-saathi` project (step 4.1). Roles (`owner`/`writer`/`helper`/`viewer`) are enforced server-side via `events/{eventId}.members`; no path allows `delete`; helpers have zero read access to `entries`/`history`/`boxes` (this is how "helpers never receive totals" is enforced, not just a UI choice). See `data-model.md` for the full schema.
 - Not yet in place: Compose/Hilt, screens, repositories/ViewModels (the data layer's Kotlin code — only the server-side schema/rules exist so far), Storage, AI Logic.
 - `data-model.md`, `screens.md`, and `design-tokens.md` all now exist. `design-tokens.md` holds seed values only, marked "replace after Stitch".
-- Local Android Studio project at `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` exists separately and is not yet a git repo (open question: merge into this repo or keep separate).
+- The Android app now lives at `android/` in this repo (resolved Q-001, D-024) — edit `shagun-saathi/android/`, not the old `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` path, which still has an unused, commit-free local `.git`.
 
 ## Tech stack and versions
 
