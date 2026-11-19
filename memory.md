@@ -13,3 +13,4 @@ Durable facts about the user, environment and project that should persist across
 - Shagun Saathi: free Android app + light website replacing the paper shagun notebook. Stack: Kotlin, Compose, Hilt, Navigation Compose, Coroutines/StateFlow, Firebase Auth/Firestore (offline persistence)/Storage/AI Logic (Gemini). Free Firebase plan — no Cloud Functions.
 - Core principles: ten seconds per guest, one hand, works offline, entries never deleted (voided with reason instead), private by default, app never holds money, respectful tone.
 - Design source: Stitch project "Shagun Saathi Android".
+- `RULES.md` now exists at repo root with the hard constraints every agent run must follow (stack, folder layout, naming, state handling, design, product, localisation, security, process rules).

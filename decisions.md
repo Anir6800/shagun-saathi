@@ -6,3 +6,6 @@
 
 ## 2026-11-19 (2)
 - `CONTEXT.md` lists `RULES.md`, `data-model.md`, `screens.md`, and `design-tokens.md` in its index, but these files do not exist yet. Rather than stub them out now (out of scope for the CONTEXT.md task), `CONTEXT.md` carries a recreate-from-template section for each, and their absence is tracked in `open-questions.md`.
+
+## 2026-11-19 (3)
+- `google-services.json` handling: never committed, kept out via `.gitignore`, provided locally or via CI secrets per environment. A real file wasn't added in this step (no CI/local secrets setup yet) — this is noted as a follow-up, not a contradiction of the no-secrets rule.
