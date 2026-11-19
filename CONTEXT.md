@@ -10,8 +10,8 @@ This file is the entry point. Read it first in every new session, before touchin
 | [`RULES.md`](RULES.md) | Hard constraints and conventions every agent must follow (money arithmetic, no deletes, string resources, design tokens, etc.). Violating these requires stopping to ask. | Always, before any task. |
 | [`memory.md`](memory.md) | The project's long-term memory: current state, stack, architecture, integrations, known issues, next step. Rewritten (Current state/Next step) after every task; gives a new agent the full picture in two minutes. | Always, before any task. |
 | [`decisions.md`](decisions.md) | ID'd (D-001...) decision log: context, decision, alternatives, consequences. Entries are never edited once accepted — only superseded. A task that contradicts this file must stop and ask. | Always, before any task. |
-| `changelog.md` | Dated log of what changed, why, files touched, and how it was verified. History/reference, not a pre-task read. | When investigating history or writing a new entry. |
-| `progress.md` | Checklist of steps/tasks with status and the current next step. | Always, before any task. |
+| [`changelog.md`](changelog.md) | Newest-first running history: date, step id, what changed, why, files touched, how verified. One entry per completed step, never rewritten. | When investigating history or writing a new entry. |
+| [`progress.md`](progress.md) | Current phase/step/last-updated header, a table of phases 1–17 with exit criteria and status, and a table of steps with tool/status/date/notes. Updated when a step starts and when it finishes. | Always, before any task. |
 | `data-model.md` | Firestore data model: `events/{id}` member roles, `entries`/`history`/`boxes` subcollections, `guests/{id}`, field definitions. | When a task touches data, repositories, or Firestore rules. |
 | `screens.md` | Screen inventory, navigation graph, per-screen purpose, states, and key UI behaviour. | When a task touches UI, navigation, or ViewModels. |
 | `design-tokens.md` | Colours, radii, blur, spacing, and other tokens sourced from the Stitch design. | When a task touches UI styling. |

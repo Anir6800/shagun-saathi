@@ -54,4 +54,4 @@ Not applicable yet — no Android module exists in this repo. Once the app modul
 
 ## Next step
 
-Create `data-model.md` (Firestore data model), per `progress.md`.
+Create `data-model.md` (Firestore data model), per `progress.md` (step 2.7).
