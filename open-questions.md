@@ -86,6 +86,22 @@ Entry format: ID, question, why it matters, owner, status (`open` or `answered`)
 - Answer: —
 - Date: 2026-11-19
 
+## Q-012
+- Question: What Storage path/naming convention should `entries.photoUrl` point to (e.g. `events/{eventId}/entries/{entryId}.jpg`)? Firebase Storage isn't set up yet (Q-003/step 3.3), so `firestore.rules` doesn't yet have matching Storage rules for this.
+- Why it matters: `data-model.md`'s `entries.photoUrl` field (step 4.1) assumes a Storage URL exists, but there are no Storage security rules yet to say who may upload/read under which path — needed before photo attach (gift entry, UPI QR upload) can be built safely.
+- Owner: Product owner
+- Status: open
+- Answer: —
+- Date: 2026-11-19
+
+## Q-013
+- Question: Should a `viewer` be able to read `history` or `boxes` (e.g. to see an audit trail), or should `viewer` stay read-only on `entries` only, as `firestore.rules` currently enforces?
+- Why it matters: `data-model.md`'s role rules summary (step 4.1) gives `viewer` no access to `history`/`boxes`. If a future "viewer" screen needs either, the rule and the role summary both need to change together.
+- Owner: Product owner
+- Status: open
+- Answer: —
+- Date: 2026-11-19
+
 ## Q-009
 - Question: Should the app be published on Google Play at some point, in addition to the GitHub Releases APK?
 - Why it matters: Affects signing/release process, review compliance work, and whether Play-specific APIs (e.g. Play Integrity) should be adopted now or later.

@@ -1,7 +1,7 @@
 # Progress
 
-Current phase: Phase 3 — Firebase setup
-Current step: 3.2 — Fix package name and register debug SHA-1 (done); next up 3.3 — Firebase Storage and Firebase AI Logic setup
+Current phase: Phase 4 — Data layer
+Current step: 4.1 — Data model and security rules (done); next up 3.3 (Storage/AI Logic, still open) or 4.2 (repositories/models)
 Last updated: 2026-11-19
 
 Update status when a step starts (`doing`) and when it finishes (`done`). List blockers under the step they block.
@@ -13,7 +13,7 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 1. Project setup | Android project builds and syncs; public GitHub repo exists with `main`/`dev` branches | done | 2026-11-19 |
 | 2. Context and process docs | `CONTEXT.md`, `RULES.md`, `memory.md`, `decisions.md`, `changelog.md`, `progress.md`, `data-model.md`, `screens.md`, `design-tokens.md`, `open-questions.md` all exist and are linked from `CONTEXT.md` | done | 2026-11-19 |
 | 3. Firebase setup | Firebase project created; Auth (Google + email), Firestore (offline persistence), Storage, and Firebase AI Logic configured; `google-services.json` provisioned locally/CI | doing | 2026-11-19 |
-| 4. Data layer | Repositories and models for events/entries/history/boxes/guests built per `data-model.md`; Firestore security rules written | todo | |
+| 4. Data layer | Repositories and models for events/entries/history/boxes/guests built per `data-model.md`; Firestore security rules written | doing | 2026-11-19 |
 | 5. Design system from Stitch | Real Stitch screens pulled via MCP; `design-tokens.md` replaced with real values from the design | todo | |
 | 6. Core navigation and app shell | Navigation Compose graph, app shell, bottom nav in place | todo | |
 | 7. Auth screens | Splash, Onboarding, Sign in, Create account/reset password, Profile setup built | todo | |
@@ -47,6 +47,8 @@ Update status when a step starts (`doing`) and when it finishes (`done`). List b
 | 3.1 | Create the Firebase project (Spark plan) | Firebase console + CLI | done | 2026-11-19 | Done by product owner, verified via CLI. Follow-ups: package name is `com.example.shagunsaathi` (should be `com.shagunsaathi.app`); no debug SHA-1 registered. |
 | 3.2 | Fix package name and register debug SHA-1 | Android Studio + Firebase CLI | done | 2026-11-19 | New Firebase app `com.shagunsaathi.app` with debug SHA-1/SHA-256. Sources moved. Kotlin pinned to 2.4.0 for firebase-auth 25. Build and unit tests pass. |
 | 3.3 | Firebase Storage and Firebase AI Logic setup | Firebase console | todo | | |
+| 4.1 | Data model and security rules | Antigravity agent + Firebase CLI | done | 2026-11-19 | Schema reshaped in data-model.md; firestore.rules + firestore.indexes.json written and deployed. |
+| 4.2 | Build repositories/models in data/ per the schema | Antigravity agent | todo | | |
 
 ## Blockers
 

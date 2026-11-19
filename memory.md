@@ -10,7 +10,9 @@ Shagun Saathi is a free Android app and light website that replace the paper not
 
 - GitHub repo `Anir6800/shagun-saathi` created (public), with `main` and `dev` branches.
 - All 10 context/process docs now exist: `CONTEXT.md`, `RULES.md`, `memory.md`, `decisions.md` (D-001–D-018, all Accepted), `changelog.md`, `progress.md`, `data-model.md`, `screens.md`, `design-tokens.md`, `open-questions.md` (Q-001–Q-009). Phase 2 (context/process docs) is complete.
-- Firebase project `shagun-saathi` exists. Firestore `(default)` is in `asia-south1` (Native mode), Google and Email/Password auth are on, and one Android app is registered. The local Android project has the google-services plugin, firebase-auth and firebase-firestore wired in. The app id is `com.shagunsaathi.app`, with the debug SHA-1 and SHA-256 registered in Firebase. Kotlin is pinned to 2.4.0. Debug build and unit tests pass. Not yet in place: Compose/Hilt, screens, data layer, Storage, AI Logic.
+- Firebase project `shagun-saathi` exists. Firestore `(default)` is in `asia-south1` (Native mode), Google and Email/Password auth are on, and one Android app is registered. The local Android project has the google-services plugin, firebase-auth and firebase-firestore wired in. The app id is `com.shagunsaathi.app`, with the debug SHA-1 and SHA-256 registered in Firebase. Kotlin is pinned to 2.4.0. Debug build and unit tests pass.
+- The full Firestore schema is designed and `firestore.rules`/`firestore.indexes.json` are written and **deployed** to the live `shagun-saathi` project (step 4.1). Roles (`owner`/`writer`/`helper`/`viewer`) are enforced server-side via `events/{eventId}.members`; no path allows `delete`; helpers have zero read access to `entries`/`history`/`boxes` (this is how "helpers never receive totals" is enforced, not just a UI choice). See `data-model.md` for the full schema.
+- Not yet in place: Compose/Hilt, screens, repositories/ViewModels (the data layer's Kotlin code — only the server-side schema/rules exist so far), Storage, AI Logic.
 - `data-model.md`, `screens.md`, and `design-tokens.md` all now exist. `design-tokens.md` holds seed values only, marked "replace after Stitch".
 - Local Android Studio project at `C:\Users\ANIRUDDH\AndroidStudioProjects\ShagunSaathi` exists separately and is not yet a git repo (open question: merge into this repo or keep separate).
 
@@ -30,7 +32,35 @@ MVVM with repositories. Layers: `ui/` (Composables, screens, nav graph, one View
 
 ## Data model summary
 
-See `data-model.md` for the full schema. `events/{id}` has a `members` map (owner, writer, helper, viewer roles) and subcollections `entries` (guestId, type, netAmount, notesIn, changeOut, writerId, serial, voidedReason), `history` (append-only audit of edits/voids), and `boxes` (cash note counts, handovers); `guests/{id}` is scoped per owner.
+See `data-model.md` for the full schema and `firestore.rules`/`firestore.indexes.json` for the enforced rules (deployed to the live project). One example document per collection:
+
+```json
+// events/evt_001
+{ "name": "Priya's Wedding", "type": "wedding", "date": "2026-12-05T00:00:00Z",
+  "familyName": "Rathod", "ownerId": "uid_owner1", "status": "live",
+  "paymentTarget": { "upiId": "priyawedding@okaxis" },
+  "members": { "uid_owner1": "owner", "uid_writer1": "writer", "uid_helper1": "helper" } }
+```
+```json
+// events/evt_001/entries/entry_001
+{ "guestId": "guest_042", "guestName": "Mr. Rathod", "type": "cash", "netAmount": 1500,
+  "notesIn": { "500": 2, "200": 2, "100": 1 }, "changeOut": { "100": 5 },
+  "giftDescription": null, "photoUrl": null, "writerId": "uid_writer1", "serial": "W1-001",
+  "createdAt": "2026-11-19T11:05:00Z", "confirmed": true, "voidedAt": null, "voidedReason": null }
+```
+```json
+// events/evt_001/entries/entry_001/history/hist_001
+{ "guestId": "guest_042", "previousValues": { "voidedAt": null }, "editedBy": "uid_writer1",
+  "editedAt": "2026-11-19T11:10:00Z" }
+```
+```json
+// events/evt_001/boxes/uid_writer1
+{ "stock": { "500": 10, "200": 5, "100": 20 }, "float": 2000, "status": "active" }
+```
+```json
+// guests/guest_042
+{ "ownerId": "uid_owner1", "displayName": "Mr. Rathod", "aliases": ["Rathod Uncle"], "relation": "Groom's uncle" }
+```
 
 ## Screens built
 
@@ -43,6 +73,7 @@ See `screens.md` for the full map (42 screens: 32 Android + 10 Web, all currentl
 - Auth providers planned: Google sign-in, email sign-in.
 - Firebase AI Logic (Gemini): planned for the "ask about past gifts" assistant feature; not wired up yet.
 - No secrets, keys, or `google-services.json` are stored in this repo or in this file — see `RULES.md` security rules.
+- `firestore.rules` and `firestore.indexes.json` live in the Android project root and are deployed with `firebase deploy --only firestore:rules,firestore:indexes --project shagun-saathi` (`.firebaserc` pins the default project). No secrets in either file.
 
 ## How to run and test
 
@@ -52,8 +83,9 @@ Not applicable yet — no Android module exists in this repo. Once the app modul
 
 - Storage and Firebase AI Logic are not set up yet.
 - A release signing key doesn't exist yet. Its SHA-1 must be added to Firebase when it does.
+- No repositories/ViewModels exist yet to actually write/read this schema from the app — only the server-side rules and schema docs exist.
 - No decision yet on whether the existing local Android Studio project folder becomes this repo's app module.
 
 ## Next step
 
-Step 3.3: Firebase Storage and Firebase AI Logic setup.
+Step 4.2 (or 3.3, whichever the product owner wants next): either build the `data/` repositories/models for this schema, or finish Phase 3 (Storage, Firebase AI Logic).
