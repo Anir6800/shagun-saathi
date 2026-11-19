@@ -1,0 +1,100 @@
+rules_version = '2';
+
+// Shagun Saathi Firestore security rules.
+// Roles live in events/{eventId}.members (map<uid, "owner"|"writer"|"helper"|"viewer")).
+// No path in this file ever allows delete — entries are voided, never deleted (D-010).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function eventDoc(eventId) {
+      return get(/databases/$(database)/documents/events/$(eventId)).data;
+    }
+
+    function roleIn(eventId) {
+      return eventDoc(eventId).members[request.auth.uid];
+    }
+
+    function isMember(eventId) {
+      return request.auth != null && request.auth.uid in eventDoc(eventId).members;
+    }
+
+    function isOwner(eventId) {
+      return request.auth != null && roleIn(eventId) == 'owner';
+    }
+
+    function isWriter(eventId) {
+      return request.auth != null && roleIn(eventId) == 'writer';
+    }
+
+    function isHelper(eventId) {
+      return request.auth != null && roleIn(eventId) == 'helper';
+    }
+
+    function isViewer(eventId) {
+      return request.auth != null && roleIn(eventId) == 'viewer';
+    }
+
+    function eventIsLive(eventId) {
+      return eventDoc(eventId).status == 'live';
+    }
+
+    match /events/{eventId} {
+      // Every member can read the event document (no totals live here).
+      allow get: if isMember(eventId);
+      // Only the owner creates/updates the event itself (title, status, members, paymentTarget).
+      allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;
+      allow update: if isOwner(eventId);
+      allow delete: if false;
+
+      match /entries/{entryId} {
+        // Owner and writer can read entries (writer needs them to balance the box).
+        // Helpers cannot read entries at all — this is how "no totals for helpers" is enforced:
+        // they never get a list/aggregate view, only create access.
+        allow get, list: if isOwner(eventId) || isWriter(eventId) || isViewer(eventId);
+
+        // A writer or helper may create an entry only under their own uid as writerId,
+        // and only while the event is live.
+        allow create: if (isWriter(eventId) || isHelper(eventId)) &&
+          eventIsLive(eventId) &&
+          request.resource.data.writerId == request.auth.uid;
+
+        // Edits: the owner may update any entry (any time, including after the event ends,
+        // e.g. to void a mistaken entry). A writer may update only their own entry, and only
+        // while the event is live — once ended, writers are read-only (voidedAt/voidedReason
+        // included, since voiding is the only form of "delete").
+        allow update: if isOwner(eventId) ||
+          (isWriter(eventId) && eventIsLive(eventId) && resource.data.writerId == request.auth.uid);
+
+        allow delete: if false;
+
+        match /history/{historyId} {
+          // History is an append-only audit trail of one entry's edits/voids.
+          allow get, list: if isOwner(eventId) || isWriter(eventId);
+          allow create: if (isOwner(eventId) || isWriter(eventId)) &&
+            request.resource.data.editedBy == request.auth.uid;
+          allow update, delete: if false;
+        }
+      }
+
+      match /boxes/{writerId} {
+        // Cash box totals. Helpers never read these (per RULES.md: helpers never receive totals).
+        allow get, list: if isOwner(eventId) ||
+          (isWriter(eventId) && writerId == request.auth.uid);
+
+        // A writer only ever writes their own box document; the owner can correct any box.
+        allow create, update: if isOwner(eventId) ||
+          (isWriter(eventId) && eventIsLive(eventId) && writerId == request.auth.uid);
+
+        allow delete: if false;
+      }
+    }
+
+    match /guests/{guestId} {
+      // Guests are private to the owner who created them.
+      allow get, list: if request.auth != null && resource.data.ownerId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;
+      allow update: if request.auth != null && resource.data.ownerId == request.auth.uid;
+      allow delete: if false;
+    }
+  }
+}
